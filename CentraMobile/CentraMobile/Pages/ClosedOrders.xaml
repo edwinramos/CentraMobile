@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CentraMobile.Pages.ClosedOrders"
+             Title="Ordenes Cerradas">
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem Icon="add.png" Text="Add" Clicked="ToolbarItem_Clicked"/>-->
+    </ContentPage.ToolbarItems>
+    <ListView x:Name="MyListView"
+            ItemsSource="{Binding Orders}"
+            ItemTapped="Handle_ItemTapped"
+            CachingStrategy="RecycleElement">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="Re-Abrir" Clicked="Add_Clicked"/>
+                        <MenuItem Text="Enviar" Clicked="Send_Clicked"/>
+                    </ViewCell.ContextActions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding ClientDescription}" FontSize="Medium"/>
+                        <Label Grid.Row="1" Text="{Binding DocDateTime, StringFormat='{0:dd/MM/yyyy hh:mm}'}"  FontSize="Small"/>
+                        <Label Grid.Column="1" Grid.RowSpan="2" Text="{Binding DocTotal, StringFormat='{0:C2}'}" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="End"/>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
