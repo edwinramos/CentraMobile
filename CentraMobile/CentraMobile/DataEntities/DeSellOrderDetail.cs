@@ -51,8 +51,6 @@ namespace CentraMobile.DataEntities
         
         public double TotalRowValue { get; set; }
 
-        public DeSellOrder SellOrder { get; set; }
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)

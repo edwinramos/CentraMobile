@@ -14,7 +14,8 @@
             <DataTemplate>
                 <ViewCell>
                     <ViewCell.ContextActions>
-                        <MenuItem Text="Cerrar" Clicked="Close_Clicked"/>
+                        <MenuItem Text="Terminar" Clicked="Close_Clicked"/>
+                        <MenuItem Text="Eliminar" Clicked="Remove_Clicked"/>
                     </ViewCell.ContextActions>
                     <Grid>
                         <Grid.ColumnDefinitions>

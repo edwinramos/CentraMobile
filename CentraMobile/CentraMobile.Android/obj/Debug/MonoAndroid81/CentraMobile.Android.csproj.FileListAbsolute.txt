@@ -1,7 +1,10 @@
 C:\CentraMobile\CentraMobile\CentraMobile.Android\bin\Debug\CentraMobile.Android.dll
 C:\CentraMobile\CentraMobile\CentraMobile.Android\bin\Debug\CentraMobile.Android.pdb
+C:\CentraMobile\CentraMobile\CentraMobile.Android\bin\Debug\com.DBRASolutions.CentraMobile.apk
+C:\CentraMobile\CentraMobile\CentraMobile.Android\bin\Debug\com.DBRASolutions.CentraMobile-Signed.apk
 C:\CentraMobile\CentraMobile\CentraMobile.Android\bin\Debug\CentraMobile.dll
 C:\CentraMobile\CentraMobile\CentraMobile.Android\bin\Debug\CentraMobile.pdb
+C:\CentraMobile\CentraMobile\CentraMobile.Android\bin\Debug\CentraMobile.dll.mdb
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\CentraMobile.Android.csprojAssemblyReference.cache
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\XbdMerge\Xamarin.GooglePlayServices.Basement.dll.stamp
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\XbdMerge\Xamarin.GooglePlayServices.Tasks.dll.stamp
@@ -21,6 +24,7 @@ C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\XamlC.
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\CentraMobile.Android.csproj.CopyComplete
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\CentraMobile.Android.dll
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\CentraMobile.Android.pdb
+C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\android\bin\com.DBRASolutions.CentraMobile.apk
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\res\layout\tabbar.xml
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\res\layout\toolbar.xml
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\res\values\styles.xml
@@ -44,6 +48,14 @@ C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\res\dr
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\res\drawable\logout48x48.png
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\res\drawable\cotizacion48x48.png
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\res\drawable\upload48x40.png
+C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\res\drawable\add.png
+C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\res\drawable\save.png
+C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\res\drawable\upload.png
+C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\res\drawable-hdpi\icon.png
+C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\res\drawable-xhdpi\icon.png
+C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\res\drawable-xxhdpi\icon.png
+C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\res\drawable-xxxhdpi\icon.png
+C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\res\drawable\icon.png
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\R.cs.flag
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\R.txt
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\uploadflags.txt
@@ -70,7 +82,6 @@ C:\CentraMobile\CentraMobile\CentraMobile.Android\bin\Debug\Xamarin.Forms.Core.p
 C:\CentraMobile\CentraMobile\CentraMobile.Android\bin\Debug\Xamarin.Forms.Platform.Android.pdb
 C:\CentraMobile\CentraMobile\CentraMobile.Android\bin\Debug\Xamarin.Forms.Xaml.pdb
 C:\CentraMobile\CentraMobile\CentraMobile.Android\bin\Debug\Acr.UserDialogs.dll.mdb
-C:\CentraMobile\CentraMobile\CentraMobile.Android\bin\Debug\CentraMobile.dll.mdb
 C:\CentraMobile\CentraMobile\CentraMobile.Android\bin\Debug\Plugin.LocalNotifications.dll.mdb
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\linksrc\CentraMobile.Android.pdb
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\linksrc\FormsViewGroup.pdb
@@ -124,12 +135,6 @@ C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\androi
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\android\assets\Xamarin.Forms.Core.pdb
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\android\assets\Xamarin.Forms.Platform.Android.pdb
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\android\assets\Xamarin.Forms.Xaml.pdb
-C:\CentraMobile\CentraMobile\CentraMobile.Android\bin\Debug\com.DBRASolutions.CentraMobile.apk
-C:\CentraMobile\CentraMobile\CentraMobile.Android\bin\Debug\com.DBRASolutions.CentraMobile-Signed.apk
-C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\android\bin\com.DBRASolutions.CentraMobile.apk
-C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\res\drawable\add.png
-C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\res\drawable\save.png
-C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\res\drawable\upload.png
 C:\CentraMobile\CentraMobile\CentraMobile\bin\Debug\netstandard2.0\CentraMobile.dll
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\linksrc\CentraMobile.Android.pdb
 C:\CentraMobile\CentraMobile\CentraMobile.Android\bin\Debug\CentraMobile.dll.mdb

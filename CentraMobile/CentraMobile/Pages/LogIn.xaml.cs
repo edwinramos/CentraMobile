@@ -31,8 +31,9 @@ namespace CentraMobile.Pages
             if (users.Any())
             {
                 var usr = users.FirstOrDefault();
+                StaticHelper.User = usr;
                 AcrToast.Success($"¡Bienvenido {usr.Name}!", 2);
-                await Navigation.PushAsync(new MainMenu());
+                await Navigation.PushAsync(new TabbedMainMenu());
             }
         }
 
@@ -68,7 +69,7 @@ namespace CentraMobile.Pages
                         await new DlUser().Save(usr);
                         
                         AcrToast.Success($"¡Bienvenido {usr.Name}!", 2);
-                        await Navigation.PushAsync(new MainMenu());
+                        await Navigation.PushAsync(new TabbedMainMenu());
                     }
                     else
                         AcrToast.Error("Usuario o contraseña incorrectos", 2);           

@@ -86,7 +86,7 @@ namespace CentraMobile.Pages
                     var objHead = new SellOrderModel();
                     objHead.PriceListCode = item.PriceListCode;
                     objHead.PaymentTypeCode = item.PaymentTypeCode;
-                    objHead.IsClosed = item.IsClosed;
+                    objHead.IsClosed = false;
                     objHead.ExternalReference = item.ExternalReference;
                     objHead.ClientCode = item.ClientCode;
                     objHead.ClientDescription = item.ClientDescription;
@@ -130,14 +130,45 @@ namespace CentraMobile.Pages
                     {
                         var tuple = new Tuple<SellOrderModel, List<SellOrderDetailModel>>(objHead, detailList);
                         var jsonObj = JsonConvert.SerializeObject(tuple);
-                        var response = await restService.PostResponse<Tuple<SellOrderModel, List<SellOrderDetailModel>>>("mob/save_sell_order?password=" + StaticHelper.ServerPassword, jsonObj);
+                        var response = await restService.PostResponse<Tuple<SellOrderModel, List<SellOrderDetailModel>>>("mob/save_sell_order?password=" + StaticHelper.ServerPassword+"&userCode="+StaticHelper.User.UserCode, jsonObj);
 
                         if (response)
-                            AcrToast.Success("¡Orden Cargada!", 2);
-                        else
                         {
-                            AcrToast.Error("Error al cargar la orden", 2);
+                            AcrToast.Success("¡Orden Cargada!", 2);
+                            await new DlSellOrder().Delete(item.SellOrderId);
+
+                            var list = (await new DlSellOrderDetail().ReadAll()).Where(x => x.SellOrderId == item.SellOrderId);
+                            await new DlSellOrderDetail().DeleteByOrder(item.SellOrderId);
+                            vm.LoadData(true);
                         }
+                        else
+                            AcrToast.Error("Error al cargar la orden", 2);
+                    }
+                }
+            }
+        }
+
+        private async void Remove_Clicked(object sender, EventArgs e)
+        {
+            using (var dlg = UserDialogs.Instance.Loading("Cargando..."))
+            {
+                var menuItem = sender as MenuItem;
+
+                if (menuItem != null)
+                {
+                    var item = menuItem.BindingContext as DeSellOrder;
+
+                    var res = await DisplayAlert("Abir orden", "¿Seguro que desea eliminar esta orden?", "Si", "No");
+                    if (res)
+                    {
+                        await new DlSellOrder().Delete(item.SellOrderId);
+
+                        var list = (await new DlSellOrderDetail().ReadAll()).Where(x => x.SellOrderId == item.SellOrderId);
+
+                        await new DlSellOrderDetail().DeleteByOrder(item.SellOrderId);
+
+                        vm.LoadData(false);
+                        AcrToast.Info("Orden Eliminada", 2);
                     }
                 }
             }

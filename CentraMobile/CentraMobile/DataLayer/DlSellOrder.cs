@@ -65,7 +65,7 @@ namespace CentraMobile.DataLayer
 
         public async Task Delete(int sellOrderId)
         {
-            var SellOrder = ReadByCode(sellOrderId);
+            var SellOrder = await ReadByCode(sellOrderId);
             if (SellOrder != null)
             {
                 await _database.DeleteAsync(SellOrder);

@@ -26,7 +26,7 @@
 
             <Label Text="Comentarios"/>
             <Editor x:Name="txtComments" HeightRequest="100" />
-            <Button Text="Cerrar" Clicked="btnClose_Clicked"/>
+            <Button x:Name="btnCloseOrder" Text="Terminar" Clicked="btnClose_Clicked"/>
         </StackLayout>
     </ContentPage>
     <ContentPage Title="Articulos" >
@@ -47,7 +47,7 @@
                 <Entry x:Name="txtBarcode" Placeholder="Inserte Articulo..." Grid.Column="1"/>
                 
                 <Stepper x:Name="_qtyStepper" Minimum="1" HorizontalOptions="FillAndExpand" Grid.Row="1"/>
-                <Button Text="Agregar" Clicked="Button_Clicked" Grid.Row="1" Grid.Column="1"/>
+                <Button Text="Agregar" Clicked="bthItemAdd_Clicked" Grid.Row="1" Grid.Column="1"/>
                 
                 <BoxView Grid.Row="2" Grid.ColumnSpan="2" BackgroundColor="White" Style="{StaticResource bvTitle}"/>
             </Grid>

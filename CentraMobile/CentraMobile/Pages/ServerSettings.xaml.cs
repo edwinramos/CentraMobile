@@ -60,8 +60,8 @@ namespace CentraMobile.Pages
                         await _dlTable.Save(new DeTable { KeyFixed = _keyFixed, KeyVariable = "SERVERPASSWORD", Value = txtPassword.Text });
 
                         StaticHelper.ServerTimeOut = txtTimeOut.Text;
-                        StaticHelper.ServerTimeOut = txtServerAddress.Text;
-                        StaticHelper.ServerTimeOut = txtPassword.Text;
+                        StaticHelper.ServerAddress = txtServerAddress.Text;
+                        StaticHelper.ServerPassword = txtPassword.Text;
 
                         await Navigation.PopAsync();
                     }

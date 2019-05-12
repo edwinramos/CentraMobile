@@ -15,6 +15,7 @@
                 <ViewCell>
                     <ViewCell.ContextActions>
                         <MenuItem Text="Re-Abrir" Clicked="Add_Clicked"/>
+                        <MenuItem Text="Eliminar" Clicked="Remove_Clicked"/>
                         <MenuItem Text="Enviar" Clicked="Send_Clicked"/>
                     </ViewCell.ContextActions>
                     <Grid>

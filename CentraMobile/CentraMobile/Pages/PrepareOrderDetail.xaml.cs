@@ -43,6 +43,7 @@ namespace CentraMobile.Pages
             _dlSellOrderDetail = new DlSellOrderDetail();
             _dlCustomer = new DlCustomer();
             _orderDetail = new ObservableCollection<DeSellOrderDetail>();
+            btnCloseOrder.IsVisible = order.SellOrderId != 0;
         }
 
         protected override async void OnAppearing()
@@ -80,7 +81,7 @@ namespace CentraMobile.Pages
             await OrderSave();
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        private async void bthItemAdd_Clicked(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(_customerCode))
             {
@@ -101,7 +102,7 @@ namespace CentraMobile.Pages
 
         private async void btnClose_Clicked(object sender, EventArgs e)
         {
-            var res = await DisplayAlert("Cerrar orden", "¿Seguro que desea cerrar esta orden?", "Si", "No");
+            var res = await DisplayAlert("Cerrar orden", "¿Seguro que desea terminar esta orden?", "Si", "No");
             if (res)
             {
                 _order.IsClosed = true;
@@ -133,15 +134,15 @@ namespace CentraMobile.Pages
             var sellOrder = new DeSellOrder
             {
                 SellOrderId = _order.SellOrderId,
-                DocTotal = _orderDetail.Sum(x => x.Price * x.Quantity),
-                DocDateTime = dpkrDocDate.Date,
+                DocTotal = _orderDetail.Sum(x => x.PriceAftVat * x.Quantity),
+                DocDateTime = dpkrDocDate.Date.AddHours(DateTime.Now.Hour).AddMinutes(DateTime.Now.Minute),
+                ClosedDateTime = new DateTime(1900, 1, 1),
                 PriceListCode = _priceListCode,
                 ClientCode = _customerCode,
                 ClientDescription = pkrCustomer.SelectedItem.ToString(),
                 Comments = txtComments.Text,
                 IsClosed = _order.IsClosed
             };
-            
             
             await _dlSellOrder.Save(sellOrder);
 
@@ -188,6 +189,7 @@ namespace CentraMobile.Pages
                             VatValue = (priceVal * (item.TaxValue / 100)),
                             PriceAftVat = priceVal + (priceVal * (item.TaxValue / 100)),
                             PriceBefDiscounts = priceVal + (priceVal * (item.TaxValue / 100)),
+                            TotalRowValue = (priceVal + (priceVal * (item.TaxValue / 100))) * int.Parse(txtQuantity.Text)
                         });
                         AcrToast.Success("Agregado " + res, 4);
 
@@ -216,16 +218,18 @@ namespace CentraMobile.Pages
                 var obj = _orderDetail.FirstOrDefault(x => x.ItemCode == item.ItemCode);
                 if (obj == null)
                 {
+                    var priceVal = price?.SellPrice ?? 0;
                     _orderDetail.Add(new DeSellOrderDetail
                     {
                         ItemCode = item.ItemCode,
                         ItemDescription = item.ItemDescription,
                         Quantity = int.Parse(txtQuantity.Text),
-                        Price = price?.SellPrice ?? 0,
+                        Price = priceVal,
                         VatPercent = item.TaxValue,
-                        VatValue = ((price?.SellPrice ?? 0) * (item.TaxValue / 100)),
-                        PriceAftVat = (price?.SellPrice ?? 0) + ((price?.SellPrice ?? 0) * (item.TaxValue / 100)),
-                        PriceBefDiscounts = (price?.SellPrice ?? 0) + ((price?.SellPrice ?? 0) * (item.TaxValue / 100)),
+                        VatValue = priceVal * (item.TaxValue / 100),
+                        PriceAftVat = priceVal + (priceVal * (item.TaxValue / 100)),
+                        PriceBefDiscounts = priceVal + (priceVal * (item.TaxValue / 100)),
+                        TotalRowValue = (priceVal + (priceVal * (item.TaxValue / 100))) * int.Parse(txtQuantity.Text)
                     });
                     AcrToast.Success("Agregado " + item.ItemDescription, 2);
 

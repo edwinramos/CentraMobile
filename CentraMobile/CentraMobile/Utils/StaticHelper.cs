@@ -17,6 +17,7 @@ namespace CentraMobile.Utils
         public static string ServerTimeOut { get; set; }
         public static string ServerAddress { get; set; }
         public static string ServerPassword { get; set; }
+        public static DeUser User { get; set; }
 
         public static async Task DownloadData()
         {
