@@ -25,7 +25,7 @@ namespace CentraMobile.Pages
         public TabbedMainMenu ()
         {
             InitializeComponent();
-            //NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasBackButton(this, false);
             BindingContext = vm;
         }
 
@@ -210,7 +210,15 @@ namespace CentraMobile.Pages
                 await Navigation.PushAsync(new ServerSettings());
 
             if (item.Title == "Descargar datos")
-                await StaticHelper.DownloadData();
+            {
+                if (await DisplayAlert("Advertencia", "Este proceso puede tardar varios minutos¿Desea continuar?", "Si", "No"))
+                {
+                    await StaticHelper.DownloadData();
+                }
+            }
+
+            if (item.Title == "Salir")
+                BackBtnPressed();
         }
 
         #endregion
@@ -233,6 +241,11 @@ namespace CentraMobile.Pages
                 }
                 await Navigation.PopAsync();
             }
+        }
+
+        private void TabbedPage_CurrentPageChanged(object sender, EventArgs e)
+        {
+            this.Title = this.CurrentPage.Title;
         }
     }
 }

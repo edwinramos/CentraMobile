@@ -31,6 +31,7 @@ namespace CentraMobile.Pages
         public PrepareOrderDetail (DeSellOrder order)
         {
             InitializeComponent();
+            NavigationPage.SetHasBackButton(this, false);
             _order = order;
 
             _priceListCode = _order.PriceListCode;
@@ -78,6 +79,9 @@ namespace CentraMobile.Pages
 
         private async void btnSave_Clicked(object sender, EventArgs e)
         {
+            var res = await DisplayAlert("Guardando","¿Desea guardar y cerrar inmediatamente?", "Si", "No, solo guardar");
+            if (res)
+                _order.IsClosed = true;
             await OrderSave();
         }
 
@@ -165,20 +169,62 @@ namespace CentraMobile.Pages
         {
             var items = (await new DlItem().ReadAll()).Where(x => x.ItemCode == txtBarcode.Text || x.Barcode == txtBarcode.Text || x.ItemDescription.ToUpper().Contains(txtBarcode.Text.ToUpper()));
 
-            if (items.Count() > 1)
+            if (items.Any())
             {
-                var strings = items.Select(x => x.ItemDescription).ToArray();
-                var res = await DisplayActionSheet("Seleccione articulo", "Cancel", null, strings);
-
-                if (res != "Cancel")
+                if (items.Count() > 1)
                 {
-                    var item = items.FirstOrDefault(x => x.ItemDescription == res);
+                    var strings = items.Select(x => x.ItemDescription).ToArray();
+                    var res = await DisplayActionSheet("Seleccione articulo", "Cancel", null, strings);
+
+                    if (res != "Cancel")
+                    {
+                        var item = items.FirstOrDefault(x => x.ItemDescription == res);
+                        var price = await new DlPrice().ReadByCode(item.ItemCode, _priceListCode);
+                        var priceVal = price?.SellPrice ?? 0;
+
+                        var obj = _orderDetail.FirstOrDefault(x => x.ItemCode == item.ItemCode);
+                        if (obj == null)
+                        {
+                            _orderDetail.Add(new DeSellOrderDetail
+                            {
+                                ItemCode = item.ItemCode,
+                                ItemDescription = item.ItemDescription,
+                                Quantity = int.Parse(txtQuantity.Text),
+                                Price = priceVal,
+                                VatPercent = item.TaxValue,
+                                VatValue = (priceVal * (item.TaxValue / 100)),
+                                PriceAftVat = priceVal + (priceVal * (item.TaxValue / 100)),
+                                PriceBefDiscounts = priceVal + (priceVal * (item.TaxValue / 100)),
+                                TotalRowValue = (priceVal + (priceVal * (item.TaxValue / 100))) * int.Parse(txtQuantity.Text)
+                            });
+                            AcrToast.Success("Agregado " + res, 4);
+
+                            txtQuantity.Text = "1";
+                            txtBarcode.Text = "";
+                        }
+                        else
+                        {
+                            await DisplayAlert("", "Este articulo ya existe", "Ok");
+                            //foreach (var detail in _orderDetail)
+                            //{
+                            //    if (detail.ItemCode == item.ItemCode)
+                            //    {
+                            //        detail.Quantity += 1;
+                            //    }
+                            //}
+                        }
+                    }
+                }
+                else
+                {
+                    var item = items.FirstOrDefault();
+
                     var price = await new DlPrice().ReadByCode(item.ItemCode, _priceListCode);
-                    var priceVal = price?.SellPrice ?? 0;
 
                     var obj = _orderDetail.FirstOrDefault(x => x.ItemCode == item.ItemCode);
                     if (obj == null)
                     {
+                        var priceVal = price?.SellPrice ?? 0;
                         _orderDetail.Add(new DeSellOrderDetail
                         {
                             ItemCode = item.ItemCode,
@@ -186,12 +232,12 @@ namespace CentraMobile.Pages
                             Quantity = int.Parse(txtQuantity.Text),
                             Price = priceVal,
                             VatPercent = item.TaxValue,
-                            VatValue = (priceVal * (item.TaxValue / 100)),
+                            VatValue = priceVal * (item.TaxValue / 100),
                             PriceAftVat = priceVal + (priceVal * (item.TaxValue / 100)),
                             PriceBefDiscounts = priceVal + (priceVal * (item.TaxValue / 100)),
                             TotalRowValue = (priceVal + (priceVal * (item.TaxValue / 100))) * int.Parse(txtQuantity.Text)
                         });
-                        AcrToast.Success("Agregado " + res, 4);
+                        AcrToast.Success("Agregado " + item.ItemDescription, 2);
 
                         txtQuantity.Text = "1";
                         txtBarcode.Text = "";
@@ -211,46 +257,31 @@ namespace CentraMobile.Pages
             }
             else
             {
-                var item = items.FirstOrDefault();
-
-                var price = await new DlPrice().ReadByCode(item.ItemCode, _priceListCode);
-
-                var obj = _orderDetail.FirstOrDefault(x => x.ItemCode == item.ItemCode);
-                if (obj == null)
-                {
-                    var priceVal = price?.SellPrice ?? 0;
-                    _orderDetail.Add(new DeSellOrderDetail
-                    {
-                        ItemCode = item.ItemCode,
-                        ItemDescription = item.ItemDescription,
-                        Quantity = int.Parse(txtQuantity.Text),
-                        Price = priceVal,
-                        VatPercent = item.TaxValue,
-                        VatValue = priceVal * (item.TaxValue / 100),
-                        PriceAftVat = priceVal + (priceVal * (item.TaxValue / 100)),
-                        PriceBefDiscounts = priceVal + (priceVal * (item.TaxValue / 100)),
-                        TotalRowValue = (priceVal + (priceVal * (item.TaxValue / 100))) * int.Parse(txtQuantity.Text)
-                    });
-                    AcrToast.Success("Agregado " + item.ItemDescription, 2);
-
-                    txtQuantity.Text = "1";
-                    txtBarcode.Text = "";
-                }
-                else
-                {
-                    await DisplayAlert("", "Este articulo ya existe", "Ok");
-                    //foreach (var detail in _orderDetail)
-                    //{
-                    //    if (detail.ItemCode == item.ItemCode)
-                    //    {
-                    //        detail.Quantity += 1;
-                    //    }
-                    //}
-                }
+                txtBarcode.Text = "";
+                AcrToast.Warning("Articulo no encontrado", 2);
             }
-
             MyListView.ItemsSource = _orderDetail;
         }
         #endregion
+
+        protected override bool OnBackButtonPressed()
+        {
+            base.OnBackButtonPressed();
+            BackBtnPressed();
+            return true;
+        }
+
+        private async void BackBtnPressed()
+        {
+            if (await DisplayAlert("", "Se perderan todos los cambios. ¿Seguro desea salir?", "Si", "No"))
+            {
+                var dlUser = new DlUser();
+                foreach (var itm in await dlUser.ReadAll())
+                {
+                    await dlUser.Delete(itm.UserCode);
+                }
+                await Navigation.PopAsync();
+            }
+        }
     }
 }

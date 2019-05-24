@@ -45,6 +45,7 @@ namespace CentraMobile.ViewModels
             SettingsItems = new ObservableCollection<ListElementModel>();
             SettingsItems.Add(new ListElementModel { Title = "Configuracion de servidor", Description = "Maneje los parametros de coneccion al servidor" });
             SettingsItems.Add(new ListElementModel { Title = "Descargar datos", Description = "Actualice los articulos y precios en su dispositivo" });
+            SettingsItems.Add(new ListElementModel { Title = "Salir", Description = "Desconectarse de la aplicacion" });
 
             LoadData();
         }

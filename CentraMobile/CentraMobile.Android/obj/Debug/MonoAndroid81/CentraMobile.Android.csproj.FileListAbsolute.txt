@@ -135,6 +135,8 @@ C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\androi
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\android\assets\Xamarin.Forms.Core.pdb
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\android\assets\Xamarin.Forms.Platform.Android.pdb
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\android\assets\Xamarin.Forms.Xaml.pdb
+C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\res\drawable\download.png
+C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\res\drawable\applogo.png
 C:\CentraMobile\CentraMobile\CentraMobile\bin\Debug\netstandard2.0\CentraMobile.dll
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Debug\MonoAndroid81\linksrc\CentraMobile.Android.pdb
 C:\CentraMobile\CentraMobile\CentraMobile.Android\bin\Debug\CentraMobile.dll.mdb

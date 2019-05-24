@@ -4,6 +4,7 @@
              x:Class="CentraMobile.Pages.LogIn">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" Padding="15">
+            <Image Source="appLogo.png" HeightRequest="100" HorizontalOptions="Center"/>
             <Label Text="CentraPos Mobile" FontSize="Large" HorizontalOptions="Center"/>
 
             <Entry x:Name="UserCode" Placeholder="Usuario"/>

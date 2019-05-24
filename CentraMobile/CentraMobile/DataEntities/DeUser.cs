@@ -17,11 +17,20 @@ namespace CentraMobile.DataEntities
         public string LastName { get; set; }
 
         public Gender Gender { get; set; }
+
+        public MobileProfileType MobileProfileType { get; set; }
     }
 
     public enum Gender
     {
         HOMBRE = 0,
         MUJER = 1
+    }
+
+    public enum MobileProfileType
+    {
+        NULO = 0,
+        PREVENTA = 1,
+        TRANSPORTISTA = 2
     }
 }

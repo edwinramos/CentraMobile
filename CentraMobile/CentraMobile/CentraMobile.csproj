@@ -19,14 +19,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Pages\ClosedOrders.xaml.cs">
-      <DependentUpon>ClosedOrders.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Pages\ClosedOrderDetail.xaml.cs">
       <DependentUpon>ClosedOrderDetail.xaml</DependentUpon>
     </Compile>
     <Compile Update="Pages\ServerSettings.xaml.cs">
       <DependentUpon>ServerSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Transportist\ClosedOrderDetail.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Transportist\PrepareOrderDetail.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Transportist\TabbedMainMenu.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -34,19 +40,10 @@
     <EmbeddedResource Update="Pages\LogIn.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\MainMenu.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Pages\PrepareOrderDetail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\PrepareOrders.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Pages\ServerSettings.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Settings.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

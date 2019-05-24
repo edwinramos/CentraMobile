@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CentraMobile.Pages.Transportist.PrepareOrderDetail"
+           Title="Orden"
+            BarBackgroundColor="Gainsboro"
+            BarTextColor="OrangeRed"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             android:TabbedPage.ToolbarPlacement="Top">
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Icon="save.png" Clicked="btnSave_Clicked"/>
+    </TabbedPage.ToolbarItems>
+    <!--Pages can be added as references or inline-->
+    <ContentPage Title="Informacion" >
+        <StackLayout Padding="10">
+            <BoxView Style="{StaticResource bvTitle}"/>
+
+            <Label Text="Cliente"/>
+            <Picker x:Name="pkrCustomer" Title="Clientes" IsEnabled="False" SelectedIndexChanged="pkrCustomer_SelectedIndexChanged"/>
+
+            <Label Text="Lista de Precio"/>
+            <Picker x:Name="pkrPriceList" IsEnabled="False" />
+
+            <Label Text="Fecha de creacion"/>
+            <DatePicker x:Name="dpkrDocDate" IsEnabled="False" Date="{Binding _docDate}" />
+
+            <Label Text="Comentarios"/>
+            <Editor x:Name="txtComments" HeightRequest="100" />
+            <Button x:Name="btnCloseOrder" Text="Terminar" Clicked="btnClose_Clicked"/>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Articulos" >
+        <StackLayout Padding="10">
+            <BoxView Style="{StaticResource bvTitle}" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Entry x:Name="txtQuantity" Text="{Binding Source={x:Reference _qtyStepper}, Path=Value, StringFormat='{0:N0}'}" Keyboard="Numeric" />
+                <Entry x:Name="txtBarcode" Placeholder="Inserte Articulo..." Grid.Column="1"/>
+                
+                <Stepper x:Name="_qtyStepper" Minimum="1" HorizontalOptions="FillAndExpand" Grid.Row="1"/>
+                <Button Text="Agregar" Clicked="bthItemAdd_Clicked" Grid.Row="1" Grid.Column="1"/>
+                
+                <BoxView Grid.Row="2" Grid.ColumnSpan="2" BackgroundColor="White" Style="{StaticResource bvTitle}"/>
+            </Grid>
+
+            <ListView x:Name="MyListView" VerticalOptions="FillAndExpand" 
+            RowHeight="60" ItemTapped="MyListView_ItemTapped"
+            CachingStrategy="RecycleElement">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding ItemDescription}" FontSize="Medium"/>
+                                <Label Grid.Row="1" Text="{Binding Quantity, StringFormat='Cantidad: {0}'}" FontSize="Small"/>
+                                <Label Grid.Column="1" Grid.RowSpan="2" Text="{Binding PriceAftVat, StringFormat='Precio unitario: {0:C2}'}" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="End"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage>
+</TabbedPage>

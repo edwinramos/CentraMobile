@@ -16,13 +16,9 @@ C:\CentraMobile\CentraMobile\CentraMobile\bin\Debug\netstandard2.0\CentraMobile.
 C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\CentraMobile.csprojAssemblyReference.cache
 C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\Pages\ClosedOrderDetail.xaml.g.cs
-C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\Pages\ClosedOrders.xaml.g.cs
 C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\Pages\LogIn.xaml.g.cs
-C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\Pages\MainMenu.xaml.g.cs
 C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\Pages\PrepareOrderDetail.xaml.g.cs
-C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\Pages\PrepareOrders.xaml.g.cs
 C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\Pages\ServerSettings.xaml.g.cs
-C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\Pages\Settings.xaml.g.cs
 C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\Pages\TabbedMainMenu.xaml.g.cs
 C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\CentraMobile.csproj.CoreCompileInputs.cache
 C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\CentraMobile.AssemblyInfoInputs.cache
@@ -30,3 +26,6 @@ C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\CentraMobile.
 C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\XamlC.stamp
 C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\CentraMobile.dll
 C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\CentraMobile.pdb
+C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\Pages\Transportist\ClosedOrderDetail.xaml.g.cs
+C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\Pages\Transportist\PrepareOrderDetail.xaml.g.cs
+C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\Pages\Transportist\TabbedMainMenu.xaml.g.cs

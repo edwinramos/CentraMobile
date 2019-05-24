@@ -32,8 +32,24 @@ namespace CentraMobile.Pages
             {
                 var usr = users.FirstOrDefault();
                 StaticHelper.User = usr;
-                AcrToast.Success($"¡Bienvenido {usr.Name}!", 2);
-                await Navigation.PushAsync(new TabbedMainMenu());
+                switch (usr.MobileProfileType)
+                {
+                    case MobileProfileType.NULO:
+                        await DisplayAlert("Usuario no autorizado", "Este usuario no posee autorizacion en esta aplicacion. Solicite autorizacion antes de continuar.", "Ok");
+                        break;
+                    case MobileProfileType.PREVENTA:
+                        AcrToast.Success($"¡Bienvenido {usr.Name}!", 2);
+                        await new DlUser().Save(usr);
+                        await Navigation.PushAsync(new TabbedMainMenu());
+                        break;
+                    case MobileProfileType.TRANSPORTISTA:
+                        AcrToast.Success($"¡Bienvenido {usr.Name}!", 2);
+                        await new DlUser().Save(usr);
+                        await Navigation.PushAsync(new Transportist.TabbedMainMenuTransportist());
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
@@ -66,13 +82,28 @@ namespace CentraMobile.Pages
                     if (result.IsSuccess)
                     {
                         var usr = JsonConvert.DeserializeObject<DeUser>(result.ResponseData);
-                        await new DlUser().Save(usr);
                         
-                        AcrToast.Success($"¡Bienvenido {usr.Name}!", 2);
-                        await Navigation.PushAsync(new TabbedMainMenu());
+                        switch (usr.MobileProfileType)
+                        {
+                            case MobileProfileType.NULO:
+                                await DisplayAlert("Usuario no autorizado", "Este usuario no posee autorizacion en esta aplicacion. Solicite autorizacion antes de continuar.", "Ok");
+                                break;
+                            case MobileProfileType.PREVENTA:
+                                AcrToast.Success($"¡Bienvenido {usr.Name}!", 2);
+                                await new DlUser().Save(usr);
+                                await Navigation.PushAsync(new TabbedMainMenu());
+                                break;
+                            case MobileProfileType.TRANSPORTISTA:
+                                AcrToast.Success($"¡Bienvenido {usr.Name}!", 2);
+                                await new DlUser().Save(usr);
+                                await Navigation.PushAsync(new Transportist.TabbedMainMenuTransportist());
+                                break;
+                            default:
+                                break;
+                        }
                     }
                     else
-                        AcrToast.Error("Usuario o contraseña incorrectos", 2);           
+                        AcrToast.Error(result.Message, 2);           
                 }
             }
             catch (Exception ex) {
@@ -81,7 +112,7 @@ namespace CentraMobile.Pages
                     if (await new DlUser().ReadByCode(UserCode.Text) != null)
                     {
                         AcrToast.Success($"¡Bienvenido {UserCode.Text}!", 2);
-                        await Navigation.PushAsync(new MainMenu());
+                        await Navigation.PushAsync(new Transportist.TabbedMainMenuTransportist());
                     }
                     else
                     {

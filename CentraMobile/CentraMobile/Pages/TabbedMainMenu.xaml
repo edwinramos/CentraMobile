@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CentraMobile.Pages.TabbedMainMenu"
             BarBackgroundColor="Gainsboro"
+            Title="Centra Mobile"
+            CurrentPageChanged="TabbedPage_CurrentPageChanged"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
              android:TabbedPage.ToolbarPlacement="Bottom">
   <!--Pages can be added as references or inline-->
@@ -34,7 +36,7 @@
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
                                 <Label Text="{Binding ClientDescription}" FontSize="Medium"/>
-                                <Label Grid.Row="1" Text="{Binding DocDateTime, StringFormat='{0:dd/MM/yyyy hh:mm}'}"  FontSize="Small"/>
+                                <Label Grid.Row="1" Text="{Binding DocDateTime, StringFormat='{0:dd/MM/yyyy hh:mm tt}'}"  FontSize="Small"/>
                                 <Label Grid.Column="1" Grid.RowSpan="2" Text="{Binding DocTotal, StringFormat='{0:C2}'}" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="End"/>
                             </Grid>
                         </ViewCell>
@@ -44,7 +46,7 @@
             </StackLayout>
         </ContentPage.Content>
     </ContentPage>
-    <ContentPage Title="Ordened Cerradas" Icon="upload48x40.png">
+    <ContentPage Title="Ordenes Cerradas" Icon="upload48x40.png">
         <ContentPage.Content>
             <StackLayout Padding="10">
                 <BoxView Style="{StaticResource bvTitle}"/>
@@ -70,7 +72,7 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Label Text="{Binding ClientDescription}" FontSize="Medium"/>
-                                    <Label Grid.Row="1" Text="{Binding DocDateTime, StringFormat='{0:dd/MM/yyyy hh:mm}'}"  FontSize="Small"/>
+                                    <Label Grid.Row="1" Text="{Binding DocDateTime, StringFormat='{0:dd/MM/yyyy hh:mm tt}'}"  FontSize="Small"/>
                                     <Label Grid.Column="1" Grid.RowSpan="2" Text="{Binding DocTotal, StringFormat='{0:C2}'}" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="End"/>
                                 </Grid>
                             </ViewCell>
@@ -80,7 +82,7 @@
             </StackLayout>
         </ContentPage.Content>
     </ContentPage>
-    <ContentPage Title="Configuraciones" Icon="settings48x48.png">
+    <ContentPage Title="Opciones" Icon="settings48x48.png">
         <ContentPage.Content>
             <StackLayout Padding="10">
                 <BoxView Style="{StaticResource bvTitle}"/>
