@@ -225,7 +225,7 @@ namespace CentraMobile.Pages.Transportist
                     objHead.DocTotal = item.DocTotal;
                     objHead.StoreCode = item.StoreCode;
                     objHead.TotalDiscount = item.TotalDiscount;
-                    objHead.VatSum = item.VatSum;
+                    objHead.VatSum = detail.Sum(x => x.VatValue);
                     objHead.WarehouseCode = item.WarehouseCode;
                     objHead.StorePosCode = item.StorePosCode;
 
@@ -310,11 +310,14 @@ namespace CentraMobile.Pages.Transportist
         {
             if (await DisplayAlert("Cerrar sesión", "¿Seguro desea salir?", "Si", "No"))
             {
-                var dlUser = new DlUser();
-                foreach (var itm in await dlUser.ReadAll())
+                var existingPages = Navigation.NavigationStack.ToList();
+                for (int i = 0; i < existingPages.Count - 1; i++)
                 {
-                    await dlUser.Delete(itm.UserCode);
+                    var m = existingPages[i];
+                    Navigation.RemovePage(m);
                 }
+
+                Navigation.InsertPageBefore(new LogIn(), this);
                 await Navigation.PopAsync();
             }
         }

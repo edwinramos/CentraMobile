@@ -26,7 +26,7 @@
 
             <Label Text="Comentarios" />
             <Editor x:Name="txtComments" IsEnabled="False" HeightRequest="100" />
-            <Button Text="Re-Abrir" Clicked="btnOpen_Clicked"/>
+            <!--<Button Text="Re-Abrir" Clicked="btnOpen_Clicked"/>-->
         </StackLayout>
     </ContentPage>
     <ContentPage Title="Articulos" Appearing="DetailPage_Appearing">

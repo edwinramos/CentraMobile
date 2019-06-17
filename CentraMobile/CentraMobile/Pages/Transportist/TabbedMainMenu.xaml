@@ -24,7 +24,7 @@
                         <ViewCell>
                             <ViewCell.ContextActions>
                                 <MenuItem Text="Terminar" Clicked="Close_Clicked"/>
-                                <MenuItem Text="Eliminar" Clicked="Remove_Clicked"/>
+                                <!--<MenuItem Text="Eliminar" Clicked="Remove_Clicked"/>-->
                             </ViewCell.ContextActions>
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -35,7 +35,7 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
-                                <Label Text="{Binding ClientDescription}" FontSize="Medium"/>
+                                <Label Text="{Binding SellOrderId, StringFormat='No. Orden: {0}'}" FontSize="Medium"/>
                                 <Label Grid.Row="1" Text="{Binding DocDateTime, StringFormat='{0:dd/MM/yyyy hh:mm tt}'}"  FontSize="Small"/>
                                 <Label Grid.Column="1" Grid.RowSpan="2" Text="{Binding DocTotal, StringFormat='{0:C2}'}" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="End"/>
                             </Grid>
@@ -58,9 +58,9 @@
                         <DataTemplate>
                             <ViewCell>
                                 <ViewCell.ContextActions>
-                                    <MenuItem Text="Re-Abrir" Clicked="ReOpen_Clicked"/>
+                                    <!--<MenuItem Text="Re-Abrir" Clicked="ReOpen_Clicked"/>-->
                                     <MenuItem Text="Enviar" Clicked="Send_Clicked"/>
-                                    <MenuItem Text="Eliminar" Clicked="Remove_Clicked"/>
+                                    <!--<MenuItem Text="Eliminar" Clicked="Remove_Clicked"/>-->
                                 </ViewCell.ContextActions>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -71,7 +71,7 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Label Text="{Binding ClientDescription}" FontSize="Medium"/>
+                                    <Label Text="{Binding SellOrderId, StringFormat='No. Orden: {0}'}" FontSize="Medium"/>
                                     <Label Grid.Row="1" Text="{Binding DocDateTime, StringFormat='{0:dd/MM/yyyy hh:mm tt}'}"  FontSize="Small"/>
                                     <Label Grid.Column="1" Grid.RowSpan="2" Text="{Binding DocTotal, StringFormat='{0:C2}'}" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="End"/>
                                 </Grid>

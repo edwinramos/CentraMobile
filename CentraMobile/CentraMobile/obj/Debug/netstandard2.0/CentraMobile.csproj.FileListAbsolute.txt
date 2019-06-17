@@ -29,3 +29,4 @@ C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\CentraMobile.
 C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\Pages\Transportist\ClosedOrderDetail.xaml.g.cs
 C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\Pages\Transportist\PrepareOrderDetail.xaml.g.cs
 C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\Pages\Transportist\TabbedMainMenu.xaml.g.cs
+C:\CentraMobile\CentraMobile\CentraMobile\obj\Debug\netstandard2.0\Pages\Modals\SoldQuantitiesModal.xaml.g.cs

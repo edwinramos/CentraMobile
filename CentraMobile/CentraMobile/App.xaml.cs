@@ -26,11 +26,40 @@ namespace CentraMobile
             MainPage = new NavigationPage(new Pages.LogIn());
         }
 
-        protected override void OnStart()
+        protected async override void OnStart()
         {
             AppCenter.Start("a28508a2-622e-4e34-877c-1f03b9c86c81", typeof(Push));
-        }
 
+            var users = await new DlUser().ReadAll();
+            if (users.Any())
+            {
+                var usr = users.FirstOrDefault();
+                StaticHelper.User = usr;
+                switch (usr.MobileProfileType)
+                {
+                    case MobileProfileType.NULO:
+                        //await DisplayAlert("Usuario no autorizado", "Este usuario no posee autorizacion en esta aplicacion. Solicite autorizacion antes de continuar.", "Ok");
+                        break;
+                    case MobileProfileType.PREVENTA:
+                        AcrToast.Success($"¡Bienvenido {usr.Name}!", 2);
+                        await new DlUser().Save(usr);
+                        MainPage = new NavigationPage(new Pages.TabbedMainMenu());
+                        break;
+                    case MobileProfileType.TRANSPORTISTA:
+                        AcrToast.Success($"¡Bienvenido {usr.Name}!", 2);
+                        await new DlUser().Save(usr);
+                        MainPage = new NavigationPage(new Pages.Transportist.TabbedMainMenuTransportist());
+                        break;
+                    default:
+                        break;
+                }
+                
+            }
+            else
+            {
+                MainPage = new NavigationPage(new Pages.LogIn());
+            }
+        }
         protected override void OnSleep()
         {
             // Handle when your app sleeps

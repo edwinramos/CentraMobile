@@ -55,6 +55,8 @@ C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Release\MonoAndroid81\res\
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Release\MonoAndroid81\res\drawable-xxhdpi\icon.png
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Release\MonoAndroid81\res\drawable-xxxhdpi\icon.png
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Release\MonoAndroid81\res\drawable\icon.png
+C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Release\MonoAndroid81\res\drawable\download.png
+C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Release\MonoAndroid81\res\drawable\applogo.png
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Release\MonoAndroid81\R.cs.flag
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Release\MonoAndroid81\R.txt
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Release\MonoAndroid81\uploadflags.txt
@@ -130,8 +132,6 @@ C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Release\MonoAndroid81\andr
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Release\MonoAndroid81\android\assets\Xamarin.Forms.Core.pdb
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Release\MonoAndroid81\android\assets\Xamarin.Forms.Platform.Android.pdb
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Release\MonoAndroid81\android\assets\Xamarin.Forms.Xaml.pdb
-C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Release\MonoAndroid81\res\drawable\download.png
-C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Release\MonoAndroid81\res\drawable\applogo.png
 C:\CentraMobile\CentraMobile\CentraMobile.Android\bin\Release\CentraMobile.Android.dll
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Release\MonoAndroid81\linksrc\CentraMobile.Android.dll.mdb
 C:\CentraMobile\CentraMobile\CentraMobile.Android\obj\Release\MonoAndroid81\linksrc\Acr.UserDialogs.dll.mdb

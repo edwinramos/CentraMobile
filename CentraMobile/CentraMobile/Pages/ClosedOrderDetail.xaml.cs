@@ -102,7 +102,7 @@ namespace CentraMobile.Pages
                 objHead.DocTotal = item.DocTotal;
                 objHead.StoreCode = item.StoreCode;
                 objHead.TotalDiscount = item.TotalDiscount;
-                objHead.VatSum = item.VatSum;
+                objHead.VatSum = _orderDetail.Sum(x => x.VatValue);
                 objHead.WarehouseCode = item.WarehouseCode;
                 objHead.StorePosCode = item.StorePosCode;
 

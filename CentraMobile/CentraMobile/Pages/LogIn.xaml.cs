@@ -27,30 +27,30 @@ namespace CentraMobile.Pages
 
         protected override async void OnAppearing()
         {
-            var users = await new DlUser().ReadAll();
-            if (users.Any())
-            {
-                var usr = users.FirstOrDefault();
-                StaticHelper.User = usr;
-                switch (usr.MobileProfileType)
-                {
-                    case MobileProfileType.NULO:
-                        await DisplayAlert("Usuario no autorizado", "Este usuario no posee autorizacion en esta aplicacion. Solicite autorizacion antes de continuar.", "Ok");
-                        break;
-                    case MobileProfileType.PREVENTA:
-                        AcrToast.Success($"¡Bienvenido {usr.Name}!", 2);
-                        await new DlUser().Save(usr);
-                        await Navigation.PushAsync(new TabbedMainMenu());
-                        break;
-                    case MobileProfileType.TRANSPORTISTA:
-                        AcrToast.Success($"¡Bienvenido {usr.Name}!", 2);
-                        await new DlUser().Save(usr);
-                        await Navigation.PushAsync(new Transportist.TabbedMainMenuTransportist());
-                        break;
-                    default:
-                        break;
-                }
-            }
+            //var users = await new DlUser().ReadAll();
+            //if (users.Any())
+            //{
+            //    var usr = users.FirstOrDefault();
+            //    StaticHelper.User = usr;
+            //    switch (usr.MobileProfileType)
+            //    {
+            //        case MobileProfileType.NULO:
+            //            await DisplayAlert("Usuario no autorizado", "Este usuario no posee autorizacion en esta aplicacion. Solicite autorizacion antes de continuar.", "Ok");
+            //            break;
+            //        case MobileProfileType.PREVENTA:
+            //            AcrToast.Success($"¡Bienvenido {usr.Name}!", 2);
+            //            await new DlUser().Save(usr);
+            //            await Navigation.PushAsync(new TabbedMainMenu());
+            //            break;
+            //        case MobileProfileType.TRANSPORTISTA:
+            //            AcrToast.Success($"¡Bienvenido {usr.Name}!", 2);
+            //            await new DlUser().Save(usr);
+            //            await Navigation.PushAsync(new Transportist.TabbedMainMenuTransportist());
+            //            break;
+            //        default:
+            //            break;
+            //    }
+            //}
         }
 
         private async void LogIn_Clicked(object sender, EventArgs e)
@@ -78,7 +78,7 @@ namespace CentraMobile.Pages
                     var restService = new RestService(StaticHelper.ServerAddress);
                     var result = await restService.GetResponse<Response>(
                                 $"mob/authenticateUser?userCode={UserCode.Text}&userPassword={Password.Text}");
-
+                    var dlUser = new DlUser();
                     if (result.IsSuccess)
                     {
                         var usr = JsonConvert.DeserializeObject<DeUser>(result.ResponseData);
@@ -90,12 +90,21 @@ namespace CentraMobile.Pages
                                 break;
                             case MobileProfileType.PREVENTA:
                                 AcrToast.Success($"¡Bienvenido {usr.Name}!", 2);
-                                await new DlUser().Save(usr);
+                                
+                                foreach (var itm in await dlUser.ReadAll())
+                                {
+                                    await dlUser.Delete(itm.UserCode);
+                                }
+                                await dlUser.Save(usr);
                                 await Navigation.PushAsync(new TabbedMainMenu());
                                 break;
                             case MobileProfileType.TRANSPORTISTA:
                                 AcrToast.Success($"¡Bienvenido {usr.Name}!", 2);
-                                await new DlUser().Save(usr);
+                                foreach (var itm in await dlUser.ReadAll())
+                                {
+                                    await dlUser.Delete(itm.UserCode);
+                                }
+                                await dlUser.Save(usr);
                                 await Navigation.PushAsync(new Transportist.TabbedMainMenuTransportist());
                                 break;
                             default:

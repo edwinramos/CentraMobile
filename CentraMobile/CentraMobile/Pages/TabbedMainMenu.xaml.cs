@@ -3,6 +3,7 @@ using CentraMobile.DataEntities;
 using CentraMobile.DataLayer;
 using CentraMobile.Dialogs;
 using CentraMobile.Models;
+using CentraMobile.Pages.Modals;
 using CentraMobile.Services;
 using CentraMobile.Utils;
 using CentraMobile.ViewModels;
@@ -217,6 +218,28 @@ namespace CentraMobile.Pages
                 }
             }
 
+            if (item.Title == "Logros de hoy")
+            {
+                using (var dlg = UserDialogs.Instance.Loading("Preparando..."))
+                {
+                    var restService = new RestService(StaticHelper.ServerAddress);
+                    var result = await restService.GetResponse<Response>(
+                                $"mob/ordersbyUser?userCode={StaticHelper.User.UserCode}");
+                    if (result.IsSuccess)
+                    {
+                        var obj = JsonConvert.DeserializeObject<Tuple<List<SellOrderModel>, List<SellOrderDetailModel>>>(result.ResponseData);
+                        //var heads = obj.Item1;
+                        var details = obj.Item2;
+
+                        //var headIds = heads.Where(x => x.DocDateTime.Date == DateTime.Today.Date).Select(x => x.SellOrderId);
+
+                        //details = details.Where(x => headIds.Contains(x.SellOrderId)).ToList();
+
+                        await Navigation.PushModalAsync(new SoldQuantitiesModal(details));
+                    }
+                }
+            }
+
             if (item.Title == "Salir")
                 BackBtnPressed();
         }
@@ -234,11 +257,14 @@ namespace CentraMobile.Pages
         {
             if (await DisplayAlert("Cerrar sesión", "¿Seguro desea salir?", "Si", "No"))
             {
-                var dlUser = new DlUser();
-                foreach (var itm in await dlUser.ReadAll())
+                var existingPages = Navigation.NavigationStack.ToList();
+                for (int i = 0; i < existingPages.Count - 1; i++)
                 {
-                    await dlUser.Delete(itm.UserCode);
+                    var m = existingPages[i];
+                    Navigation.RemovePage(m);
                 }
+
+                Navigation.InsertPageBefore(new LogIn(), this);
                 await Navigation.PopAsync();
             }
         }

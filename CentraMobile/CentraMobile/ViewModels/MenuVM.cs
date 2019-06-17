@@ -1,6 +1,7 @@
 ﻿using CentraMobile.DataEntities;
 using CentraMobile.DataLayer;
 using CentraMobile.Models;
+using CentraMobile.Utils;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -43,6 +44,9 @@ namespace CentraMobile.ViewModels
             _dlSellOrder = new DlSellOrder();
 
             SettingsItems = new ObservableCollection<ListElementModel>();
+            if (StaticHelper.User.MobileProfileType == MobileProfileType.PREVENTA)
+                SettingsItems.Add(new ListElementModel { Title = "Logros de hoy", Description = "Visualiza las ordenes que haz completado en el dia" });
+
             SettingsItems.Add(new ListElementModel { Title = "Configuracion de servidor", Description = "Maneje los parametros de coneccion al servidor" });
             SettingsItems.Add(new ListElementModel { Title = "Descargar datos", Description = "Actualice los articulos y precios en su dispositivo" });
             SettingsItems.Add(new ListElementModel { Title = "Salir", Description = "Desconectarse de la aplicacion" });
