@@ -25,7 +25,6 @@ namespace CentraMobile.Pages
             InitializeComponent();
             _dlTable = new DlTable();
         }
-
         protected override async void OnAppearing()
         {
             base.OnAppearing();

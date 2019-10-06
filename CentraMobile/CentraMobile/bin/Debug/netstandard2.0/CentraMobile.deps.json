@@ -140,21 +140,21 @@
     "Acr.UserDialogs/7.0.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wmeQhteQymYgTwDPSxfuLlWP8qkXKSCcMB0UNQi/SXl4/vvqwzsX3uP5A7kYzxsbthuFWau3Ni0ZyCL7pyb5Fw==",
+      "sha512": "sha512-J+3+rSVtAAUqvaXC0NGZ6HAcSXMaMyqvKsV1sMoraT7g+Zv/r4QmgUUITPu875n0uO57Y87Xn6IbLVDPje6tlw==",
       "path": "acr.userdialogs/7.0.4",
       "hashPath": "acr.userdialogs.7.0.4.nupkg.sha512"
     },
     "Microsoft.AppCenter/1.14.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-yr+IT4ABH/Pg2+/UuhH5qfJ5oZvuxHUMSnBpLpYHSThWDMEGVTNdZTGOf1HUL9h2UW9V+Ty/lVUV9mpavnZoSA==",
+      "sha512": "sha512-Rg21L6IA7uH3OGUXToKn5BRsyU8I9WYrv1CYEfV07WXJS3fv5H+WMjAnhitpsZE8JeyUCnRjofFpDZ2+L2kvKg==",
       "path": "microsoft.appcenter/1.14.0",
       "hashPath": "microsoft.appcenter.1.14.0.nupkg.sha512"
     },
     "Microsoft.AppCenter.Push/1.14.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tETmipC+ByfvxSKN1zJ5Kc2HTwtGlR5d0ah5Mi3HZWeLrWgrpCn9mOK+JjEnIhZ0SQhYzJHociTV3dXXTQTqrA==",
+      "sha512": "sha512-OvNB1OH/2FdECRwdLnDHxCnj4o56j+iDfUlt8wz3WwMLexMafTXQDy8bOf3wJ1oX/VZdjGQHjRYcaRNd3zAWHQ==",
       "path": "microsoft.appcenter.push/1.14.0",
       "hashPath": "microsoft.appcenter.push.1.14.0.nupkg.sha512"
     },
@@ -175,42 +175,42 @@
     "Newtonsoft.Json/12.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jmVyoEyk0In8r+AObYQyFKVFm7uSRzE0XSHSbEtBJcZDMV6DqJoyB4FLcHwprPVhAh826so0db3DIKXVnpGoPA==",
+      "sha512": "sha512-pBR3wCgYWZGiaZDYP+HHYnalVnPJlpP1q55qvVb+adrDHmFMDc1NAKio61xTwftK3Pw5h7TZJPJEEVMd6ty8rg==",
       "path": "newtonsoft.json/12.0.1",
       "hashPath": "newtonsoft.json.12.0.1.nupkg.sha512"
     },
     "sqlite-net-pcl/1.5.231": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Sy+K+Wm2RZ+4b1uLHsaXvfR92Or71XxPXa2Id6msSOVkZKh+c+PUk/HQOAgxyhm3lhvysL0mK6Gd6mI69NJ9AA==",
+      "sha512": "sha512-B9jScvqkishSMkpa9Mc4Q85LTHxRTzcUXZx9EQqgrvdz7MFEDHfpiPcKdjy1qXHdmHttEXfY4h6gu4FlgWP2Sw==",
       "path": "sqlite-net-pcl/1.5.231",
       "hashPath": "sqlite-net-pcl.1.5.231.nupkg.sha512"
     },
     "SQLitePCLRaw.bundle_green/1.1.11": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-HOD1/Jg9VZtrOyPUCD9reQOXHq4r+fNe24qw5nghuiUcKch+9jePeRpt6MqGGUFhg2KW89KvE/RFlhpbfF8pKA==",
+      "sha512": "sha512-Hqp8IF/RLjbypkLm+t+1RqAX8EKuWEkj7wkLXplfENQoPnE127cvTmaDvaQKtt7a5QsD/HNjFDr1z5f9q2wdPg==",
       "path": "sqlitepclraw.bundle_green/1.1.11",
       "hashPath": "sqlitepclraw.bundle_green.1.1.11.nupkg.sha512"
     },
     "SQLitePCLRaw.core/1.1.11": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-bWiOso10I1vDuc5rbzT69LQT0+oXfYnoqx8vKJ8zim/CJ4ytSd20QNTE/FE0dvWEgXGnvDp7gGJFu6PeWnhx9g==",
+      "sha512": "sha512-QT17CyQAQIbTCu6pW5+uVA8BXqRzquiDI1tr5Un6c1YZcQydPmGPuYYng9xMs2UHUDYHbTu+JDkp55WR+qo9bQ==",
       "path": "sqlitepclraw.core/1.1.11",
       "hashPath": "sqlitepclraw.core.1.1.11.nupkg.sha512"
     },
     "Xam.Plugins.Notifier/3.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-2xV8ZSXm0Fo+zAxt2tXw3/mlBSqZ0nR46fJW1a8Yr6mGqcDNbhEGlKJoEUTkLd7gYEMIIx5bVUaMUi34yHGF4w==",
+      "sha512": "sha512-QH/+zX9w/hMg1AOAj+a62cIJIqd4tSOSBnGGprHIhfJWHG+v+P6VvIqZSTr9z1dZDd2JfhA7Iz2KGBr4MJ2lOQ==",
       "path": "xam.plugins.notifier/3.0.1",
       "hashPath": "xam.plugins.notifier.3.0.1.nupkg.sha512"
     },
     "Xamarin.Forms/3.6.0.264807": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-T7gYS3PoGNtp6D7GAX7fF4QzR7NC36NNQSiuEb5TXO8rEqkZGwpC4u/6S62rH0wL3dabWNVpJPPnL5jZvWeoVg==",
+      "sha512": "sha512-PbnXpStyxNYJzPrXXMW17F4YeMsFAs6YT9LL2vxObDWCGtaKkLia4UyBPF3Qbhy+lQPeap/ijV1Rlvasp4DFiA==",
       "path": "xamarin.forms/3.6.0.264807",
       "hashPath": "xamarin.forms.3.6.0.264807.nupkg.sha512"
     }

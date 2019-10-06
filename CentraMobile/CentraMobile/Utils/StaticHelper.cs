@@ -32,7 +32,7 @@ namespace CentraMobile.Utils
                 using (var dlg = UserDialogs.Instance.Progress("Preparando..."))
                 {
                     var result = await restService.GetResponse<Response>(
-                            $"mob/customers?");
+                            $"mob/customers?userCode={StaticHelper.User.UserCode}");
 
                     int acc = 0;
                     double progress = 0;
